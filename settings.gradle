@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "FizzBuzz"
 include(":app")
-include(":designSystem")
+include(":core")
+include(":ui")
+include(":data")
+include(":domain")

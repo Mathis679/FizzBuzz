@@ -1,4 +1,4 @@
-package com.mathislaurent.fizzbuzz.ui.theme
+package com.mathislaurent.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

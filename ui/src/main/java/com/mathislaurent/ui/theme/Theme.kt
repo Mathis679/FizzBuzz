@@ -1,4 +1,4 @@
-package com.mathislaurent.fizzbuzz.ui.theme
+package com.mathislaurent.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
