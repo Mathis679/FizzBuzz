@@ -1,5 +1,14 @@
 apply from: '../base.gradle'
 
+android {
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.3"
+    }
+}
+
 dependencies {
     implementation(project(":domain"))
 
