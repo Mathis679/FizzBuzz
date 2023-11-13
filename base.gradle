@@ -49,6 +49,16 @@ android {
 }
 
 dependencies {
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+    // Hilt
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
+
+    // Tests
+    implementation deps.android.core
+
+    testImplementation deps.test.junit
+
+    androidTestImplementation deps.test.android_junit
+    androidTestImplementation deps.test.espresso
 }

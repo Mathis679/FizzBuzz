@@ -1,0 +1,56 @@
+def build_versions = [:]
+build_versions.minSdk = 24
+build_versions.targetSdk = 34
+build_versions.versionCode = 1
+build_versions.versionName = "1.0"
+build_versions.namespace = "com.mathislaurent.fizzbuzz"
+ext.build_versions = build_versions
+
+def versions = [:]
+versions.hilt = "2.48"
+versions.hilt_compose = "1.1.0"
+versions.android_core = "1.12.0"
+versions.android_lifecycle = "2.6.2"
+versions.compose = "2023.03.00"
+versions.compose_activity = "1.8.0"
+versions.junit = "4.13.2"
+versions.android_junit = "1.1.5"
+versions.espresso = "3.5.1"
+versions.paging = "3.2.1"
+
+def deps = [:]
+
+def hilt = [:]
+hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
+hilt.compose = "androidx.hilt:hilt-navigation-compose:$versions.hilt_compose"
+deps.hilt = hilt
+
+def android = [:]
+android.core = "androidx.core:core-ktx:$versions.android_core"
+android.lifecycle = "androidx.lifecycle:lifecycle-runtime-ktx:$versions.android_lifecycle"
+deps.android = android
+
+def compose = [:]
+compose.activity = "androidx.activity:activity-compose:$versions.compose_activity"
+compose.bom = "androidx.compose:compose-bom:$versions.compose"
+compose.ui = "androidx.compose.ui:ui"
+compose.ui_graphics = "androidx.compose.ui:ui-graphics"
+compose.ui_tooling = "androidx.compose.ui:ui-tooling-preview"
+compose.ui_test = "androidx.compose.ui:ui-test-manifest"
+compose.material = "androidx.compose.material3:material3"
+deps.compose = compose
+
+def paging = [:]
+paging.runtime = "androidx.paging:paging-runtime-ktx:$versions.paging"
+paging.compose = "androidx.paging:paging-compose:$versions.paging"
+deps.paging = paging
+
+def test = [:]
+test.junit = "junit:junit:$versions.junit"
+test.junit_compose = "androidx.compose.ui:ui-test-junit4"
+test.android_junit = "androidx.test.ext:junit:$versions.android_junit"
+test.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.test = test
+
+ext.deps = deps

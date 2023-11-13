@@ -6,10 +6,4 @@ plugins {
     id 'com.google.dagger.hilt.android' version '2.44' apply false
 }
 
-def build_versions = [:]
-build_versions.minSdk = 24
-build_versions.targetSdk = 34
-build_versions.versionCode = 1
-build_versions.versionName = "1.0"
-build_versions.namespace = "com.mathislaurent.fizzbuzz"
-ext.build_versions = build_versions
+apply from: 'dependencies.gradle'
