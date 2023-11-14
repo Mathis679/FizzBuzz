@@ -46,6 +46,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -54,11 +60,19 @@ dependencies {
     implementation deps.hilt.android
     kapt deps.hilt.compiler
 
-    // Tests
+    // Android
     implementation deps.android.core
 
+    // Tests
     testImplementation deps.test.junit
+    testImplementation deps.test.mockk
+    testImplementation deps.test.assertj
+    testImplementation deps.test.robolectric
+    testImplementation deps.test.coroutine
+    testImplementation deps.test.turbine
 
+    androidTestImplementation deps.test.mockk_android
     androidTestImplementation deps.test.android_junit
     androidTestImplementation deps.test.espresso
+
 }

@@ -1,6 +1,7 @@
 package com.mathislaurent.ui.form
 
 import androidx.annotation.StringRes
+import androidx.annotation.VisibleForTesting
 import com.mathislaurent.core.di.modules.MainDispatcher
 import com.mathislaurent.fizzbuzz.R
 import com.mathislaurent.ui.BaseViewModel
@@ -49,7 +50,8 @@ class FizzBuzzFormViewModel @Inject constructor(
         }
     }
 
-    private suspend fun validateIntField(intStr: String): FormErrorType? = withContext(dispatcher) {
+    @VisibleForTesting
+    suspend fun validateIntField(intStr: String): FormErrorType? = withContext(dispatcher) {
         when {
             intStr.isEmpty() -> FormErrorType.EMPTY
             intStr.toIntOrNull() == null -> FormErrorType.BAD_FORMAT
@@ -57,7 +59,8 @@ class FizzBuzzFormViewModel @Inject constructor(
         }
     }
 
-    private suspend fun validateStringField(word: String): FormErrorType? = withContext(dispatcher) {
+    @VisibleForTesting
+    suspend fun validateStringField(word: String): FormErrorType? = withContext(dispatcher) {
         when {
             word.isEmpty() -> FormErrorType.EMPTY
             else -> null

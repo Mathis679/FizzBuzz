@@ -18,6 +18,11 @@ versions.android_junit = "1.1.5"
 versions.espresso = "3.5.1"
 versions.paging = "3.2.1"
 versions.compose_lifecycle = "2.6.2"
+versions.mockk = "1.13.5"
+versions.assertj = "3.15.0"
+versions.robolectric = "4.9"
+versions.coroutine_test = "1.7.3"
+versions.turbine = "0.12.1"
 
 def deps = [:]
 
@@ -37,7 +42,7 @@ compose.activity = "androidx.activity:activity-compose:$versions.compose_activit
 compose.bom = "androidx.compose:compose-bom:$versions.compose"
 compose.ui = "androidx.compose.ui:ui"
 compose.ui_graphics = "androidx.compose.ui:ui-graphics"
-compose.ui_tooling = "androidx.compose.ui:ui-tooling-preview"
+compose.ui_tooling = "androidx.compose.ui:ui-tooling"
 compose.ui_test = "androidx.compose.ui:ui-test-manifest"
 compose.material = "androidx.compose.material3:material3"
 compose.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.compose_lifecycle"
@@ -54,6 +59,12 @@ test.junit = "junit:junit:$versions.junit"
 test.junit_compose = "androidx.compose.ui:ui-test-junit4"
 test.android_junit = "androidx.test.ext:junit:$versions.android_junit"
 test.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+test.mockk = "io.mockk:mockk:$versions.mockk"
+test.mockk_android = "io.mockk:mockk-android:$versions.mockk"
+test.assertj = "org.assertj:assertj-core:$versions.assertj"
+test.robolectric = "org.robolectric:robolectric:$versions.robolectric"
+test.coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$versions.coroutine_test"
+test.turbine = "app.cash.turbine:turbine:$versions.turbine"
 deps.test = test
 
 ext.deps = deps

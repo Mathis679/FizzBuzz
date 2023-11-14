@@ -1,5 +1,6 @@
 package com.mathislaurent.ui.component
 
+import android.content.res.Configuration
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.text.KeyboardActions
@@ -18,7 +19,9 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import com.mathislaurent.fizzbuzz.R
+import com.mathislaurent.ui.theme.FizzBuzzTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -73,10 +76,39 @@ fun LimitedTextField(
             shape = shape,
             colors = colors
         )
-        //todo string res
         Text(text = stringResource(id = R.string.word_limit, limit))
         if (isError) {
             Text(text = error.orEmpty(), color = MaterialTheme.colorScheme.error)
         }
+    }
+}
+
+@Preview
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun Preview() {
+    FizzBuzzTheme {
+        LimitedTextField(
+            limit = 5,
+            value = "hello",
+            label = { Text("Label") },
+            onValueChange = {}
+        )
+    }
+}
+
+@Preview
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+@Composable
+private fun PreviewError() {
+    FizzBuzzTheme {
+        LimitedTextField(
+            limit = 5,
+            value = "hello",
+            label = { Text("Label") },
+            onValueChange = {},
+            isError = true,
+            error = "Not valid"
+        )
     }
 }

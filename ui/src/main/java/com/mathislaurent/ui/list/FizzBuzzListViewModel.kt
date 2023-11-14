@@ -1,5 +1,6 @@
 package com.mathislaurent.ui.list
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.SavedStateHandle
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
@@ -21,8 +22,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class FizzBuzzListViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle,
-    getFizzBuzzListPagingUseCase: GetFizzBuzzListPagingUseCase,
+    private val savedStateHandle: SavedStateHandle,
+    private val getFizzBuzzListPagingUseCase: GetFizzBuzzListPagingUseCase,
     @MainDispatcher dispatcher: CoroutineDispatcher
 ): BaseViewModel(dispatcher) {
 
@@ -30,20 +31,27 @@ class FizzBuzzListViewModel @Inject constructor(
         MutableStateFlow(PagingData.empty())
     val fizzBuzzListUiState: StateFlow<PagingData<String>> = _fizzBuzzListUiState.asStateFlow()
 
-    init {
-        val firstIntArg: Int = savedStateHandle[FIRST_INT_ARG] ?: 0
-        val secondIntArg: Int = savedStateHandle[SECOND_INT_ARG] ?: 0
-        val firstWordArg: String = savedStateHandle[FIRST_WORD_ARG] ?: ""
-        val secondWordArg: String = savedStateHandle[SECOND_WORD_ARG] ?: ""
+    @VisibleForTesting
+    var firstIntArg: Int = savedStateHandle[FIRST_INT_ARG] ?: 0
+    @VisibleForTesting
+    var secondIntArg: Int = savedStateHandle[SECOND_INT_ARG] ?: 0
+    @VisibleForTesting
+    var firstWordArg: String = savedStateHandle[FIRST_WORD_ARG] ?: ""
+    @VisibleForTesting
+    var secondWordArg: String = savedStateHandle[SECOND_WORD_ARG] ?: ""
 
-        launch {
-            getFizzBuzzListPagingUseCase(firstIntArg, secondIntArg, firstWordArg, secondWordArg)
-                .distinctUntilChanged()
-                .cachedIn(this)
-                .collect {
-                    _fizzBuzzListUiState.emit(it)
-                }
-        }
+    init {
+        loadData()
+    }
+
+    @VisibleForTesting
+    fun loadData() = launch {
+        getFizzBuzzListPagingUseCase(firstIntArg, secondIntArg, firstWordArg, secondWordArg)
+            .distinctUntilChanged()
+            .cachedIn(this)
+            .collect {
+                _fizzBuzzListUiState.emit(it)
+            }
     }
 
     override fun catchError(error: Throwable) {

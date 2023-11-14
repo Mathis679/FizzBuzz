@@ -1,6 +1,5 @@
 package com.mathislaurent.data.pagingsource
 
-import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.mathislaurent.core.di.modules.MainDispatcher
@@ -44,7 +43,6 @@ class FizzBuzzPagingSource @Inject constructor(
         val range = IntRange(currentSize, currentSize + pageSize)
 
         val result = provider(_firstInt, _secondInt, _firstWord, _secondWord, range)
-        Log.d("RESUUULT", "range: $range \nresult: $result")
         LoadResult.Page(
             data = result,
             prevKey = if (page == 0) null else page.minus(1),
