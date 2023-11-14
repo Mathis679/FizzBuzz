@@ -45,4 +45,8 @@ class FizzBuzzListViewModel @Inject constructor(
                 }
         }
     }
+
+    override fun catchError(error: Throwable) {
+        error.printStackTrace()
+    }
 }

@@ -17,6 +17,7 @@ versions.junit = "4.13.2"
 versions.android_junit = "1.1.5"
 versions.espresso = "3.5.1"
 versions.paging = "3.2.1"
+versions.compose_lifecycle = "2.6.2"
 
 def deps = [:]
 
@@ -39,6 +40,8 @@ compose.ui_graphics = "androidx.compose.ui:ui-graphics"
 compose.ui_tooling = "androidx.compose.ui:ui-tooling-preview"
 compose.ui_test = "androidx.compose.ui:ui-test-manifest"
 compose.material = "androidx.compose.material3:material3"
+compose.viewmodel = "androidx.lifecycle:lifecycle-viewmodel-compose:$versions.compose_lifecycle"
+compose.runtime = "androidx.lifecycle:lifecycle-runtime-compose:$versions.compose_lifecycle"
 deps.compose = compose
 
 def paging = [:]

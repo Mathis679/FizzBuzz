@@ -26,4 +26,6 @@ dependencies {
     implementation deps.compose.ui_graphics
     implementation deps.compose.ui_tooling
     implementation deps.compose.material
+    implementation deps.compose.runtime
+    implementation deps.compose.viewmodel
 }

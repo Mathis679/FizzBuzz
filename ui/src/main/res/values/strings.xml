@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_error">This field should not be empty</string>
+    <string name="bad_format_error">The format is not good</string>
+    <string name="word_limit">The field is limited to %1$d chars</string>
+    <string name="validate">Validate</string>
+    <string name="first_int_label">First Int</string>
+    <string name="second_int_label">Second Int</string>
+    <string name="first_word_label">First Word</string>
+    <string name="second_word_label">Second Word</string>
+</resources>
