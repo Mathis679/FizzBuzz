@@ -18,14 +18,11 @@ class FizzBuzzProvider @Inject constructor(
         range: IntRange
     ) : List<String> = withContext(dispatcher) {
         range.map {
-            if (it % (firstInt * secondInt) == 0) {
-                firstWord + secondWord
-            } else if (it % firstInt == 0) {
-                firstWord
-            } else if (it % secondInt == 0) {
-                secondWord
-            } else {
-                it.toString()
+            when {
+                it % (firstInt * secondInt) == 0 -> firstWord + secondWord
+                it % firstInt == 0 -> firstWord
+                it % secondInt == 0 -> secondWord
+                else -> it.toString()
             }
         }
     }
